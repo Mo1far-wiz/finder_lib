@@ -1,5 +1,7 @@
 #include "Finder.h"
 
 int main(){
-	Finder::find("Finder.cpp");
+	std::filesystem::path find("Finder.cpp");
+	Finder::find(find);
+return 0;
 }

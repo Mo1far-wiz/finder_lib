@@ -11,7 +11,7 @@ std::mutex mutex;
 size_t _max_threds = 8;
 bool _recursion_exit = false;
 
-void recursive_search(fs::path const& root, std::string const& target, size_t loop = 0) {
+void recursive_search(const fs::path& root, const std::string& target, size_t loop = 0) {
 	try {
 		for (auto const& dir_entry : fs::directory_iterator{ root }) {
 			if (!dir_entry.is_directory())
@@ -36,7 +36,7 @@ void recursive_search(fs::path const& root, std::string const& target, size_t lo
 	catch (...) {}
 }
 
-void Finder::find(fs::path const& targ)
+void Finder::find(const std::filesystem::path& targ)
 {
 	const fs::path root(fs::current_path().root_path());
 	std::list<std::thread> threads;
